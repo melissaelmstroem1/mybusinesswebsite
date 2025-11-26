@@ -1,0 +1,97 @@
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+
+const transformations = [
+  {
+    id: 1,
+    title: "Heritage Ring",
+    before: "Vintage family band",
+    after: "Minimalist modern ring",
+    image: "https://images.unsplash.com/photo-1674275552496-5327af426de2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kcyUyMHdlYXJpbmclMjBnb2xkJTIwcmluZ3xlbnwxfHx8fDE3NjIzNjI4NzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+  },
+  {
+    id: 2,
+    title: "Golden Memory",
+    before: "Broken heirloom chain",
+    after: "Layered pendant necklace",
+    image: "https://images.unsplash.com/photo-1758995115560-59c10d6cc28f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZWxpY2F0ZSUyMG5lY2tsYWNlJTIwZWxlZ2FudHxlbnwxfHx8fDE3NjIzNjI4NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+  },
+  {
+    id: 3,
+    title: "Grandmother's Gift",
+    before: "Vintage clip earrings",
+    after: "Contemporary studs",
+    image: "https://images.unsplash.com/photo-1618400902169-4b230270abbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwamV3ZWxyeSUyMHdoaXRlJTIwYmFja2dyb3VuZHxlbnwxfHx8fDE3NjIzNjI4NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+  },
+  {
+    id: 4,
+    title: "Three Become One",
+    before: "Unworn gold bracelets",
+    after: "Statement cuff",
+    image: "https://images.unsplash.com/photo-1738800076744-c37b80b37d31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwZ29sZCUyMGpld2VscnklMjBtaW5pbWFsfGVufDF8fHx8MTc2MjM2Mjg3MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+  },
+  {
+    id: 5,
+    title: "Perfect Fit",
+    before: "Wedding band",
+    after: "Resized & refinished",
+    image: "https://images.unsplash.com/photo-1674275552496-5327af426de2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kcyUyMHdlYXJpbmclMjBnb2xkJTIwcmluZ3xlbnwxfHx8fDE3NjIzNjI4NzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+  },
+  {
+    id: 6,
+    title: "Melted & Reborn",
+    before: "Outdated pendant",
+    after: "Architectural necklace",
+    image: "https://images.unsplash.com/photo-1758995115560-59c10d6cc28f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZWxpY2F0ZSUyMG5lY2tsYWNlJTIwZWxlZ2FudHxlbnwxfHx8fDE3NjIzNjI4NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+  },
+];
+
+export function Transformations() {
+  return (
+    <section id="transformations" className="py-32 px-6 bg-white">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-24 max-w-3xl mx-auto">
+          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6">
+            Portfolio
+          </p>
+          <h2 className="mb-8">Transformations</h2>
+          <div className="w-16 h-px bg-accent mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Each piece tells a story of renewal. Discover how we've helped preserve precious memories while creating jewelry that resonates with contemporary life.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+          {transformations.map((item) => (
+            <div key={item.id} className="group">
+              <div className="relative overflow-hidden aspect-[4/5] mb-6 bg-secondary/20">
+                <ImageWithFallback
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-xl">{item.title}</h3>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <span className="flex-1 border-b border-border/50 pb-2">{item.before}</span>
+                  <span className="text-accent">→</span>
+                  <span className="flex-1 border-b border-border/50 pb-2">{item.after}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-16">
+          <a 
+            href="#upload" 
+            className="inline-block px-10 py-4 border border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+          >
+            <span className="text-sm tracking-[0.15em] uppercase">Begin Your Transformation</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
