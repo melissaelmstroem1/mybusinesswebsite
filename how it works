@@ -1,0 +1,69 @@
+import { Upload, MessageCircle, Sparkles, Package } from "lucide-react";
+
+const steps = [
+  {
+    id: 1,
+    icon: Upload,
+    title: "Share Your Story",
+    description: "Upload images of your jewelry and tell us about its journey. Every piece has a history worth preserving.",
+  },
+  {
+    id: 2,
+    icon: MessageCircle,
+    title: "Personal Consultation",
+    description: "Our artisans study your piece and discuss your vision. Together, we craft a design that honors the past.",
+  },
+  {
+    id: 3,
+    icon: Sparkles,
+    title: "Artisan Transformation",
+    description: "Master craftspeople delicately reshape, resize, or reimagine your jewelry using time-honored techniques.",
+  },
+  {
+    id: 4,
+    icon: Package,
+    title: "A New Beginning",
+    description: "Receive your transformed piece – a bridge between cherished memories and contemporary elegance.",
+  },
+];
+
+export function HowItWorks() {
+  return (
+    <section id="how-it-works" className="py-32 px-6 bg-white">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-24 max-w-3xl mx-auto">
+          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6">
+            The Journey
+          </p>
+          <h2 className="mb-8">Four Steps to<br />Timeless Renewal</h2>
+          <div className="w-16 h-px bg-accent mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            From first conversation to final creation, we guide you through an intimate process of transformation, ensuring every detail reflects your unique story.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          {steps.map((step, index) => (
+            <div key={step.id} className="group text-center">
+              <div className="mb-8 flex justify-center">
+                <div className="relative">
+                  <div className="w-20 h-20 flex items-center justify-center border border-border group-hover:border-accent transition-all duration-300">
+                    <step.icon className="w-8 h-8 text-foreground/60 group-hover:text-accent transition-colors duration-300" />
+                  </div>
+                  <div className="absolute -top-3 -right-3 w-8 h-8 bg-background border border-border flex items-center justify-center">
+                    <span className="text-xs text-muted-foreground font-serif">{`0${step.id}`}</span>
+                  </div>
+                </div>
+              </div>
+              <h3 className="mb-4 text-xl">{step.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-12 right-0 w-full h-px bg-border/30 -z-10"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
