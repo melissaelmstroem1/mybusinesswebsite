@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Design Your Piece - Rejewlr</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Rejewlr</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="design.html">Design Your Piece</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Upload Your Jewellery & Share Your Ideas</h2>
+    <form>
+        <label for="jewellery-upload">Upload Image:</label><br>
+        <input type="file" id="jewellery-upload" name="jewellery-upload"><br><br>
+
+        <label for="description">Describe Your Idea:</label><br>
+        <textarea id="description" name="description" rows="5" cols="50" placeholder="e.g., resize, reshape, melt into new design"></textarea><br><br>
+
+        <button type="submit">Request Consultation</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2025 Rejewlr. Sustainable & Personal Jewellery Redesign.</p>
+</footer>
+</body>
+</html>
