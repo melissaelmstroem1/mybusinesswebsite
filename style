@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* soft blue for trust */
+    color: #333;
+}
+
+header, footer {
+    background-color: #004080; /* deep blue */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+button, .cta {
+    background-color: #0080ff; /* bright blue CTA */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px; /* rounded button for comfort */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover, .cta:hover {
+    background-color: #0059b3;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #004080;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 15px;
+}
