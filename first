@@ -1,0 +1,15 @@
+rejewlr-website/
+│
+├─ index.html         (Homepage)
+├─ design.html        (Design Your Piece)
+├─ gallery.html       (Gallery)
+├─ about.html         (About Us)
+├─ contact.html       (Contact)
+│
+├─ css/
+│   └─ style.css      (All styling)
+│
+└─ images/
+    ├─ placeholder1.jpg
+    ├─ placeholder2.jpg
+    └─ ... 
