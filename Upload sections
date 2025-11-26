@@ -1,0 +1,139 @@
+import { useState } from "react";
+import { Upload, Image as ImageIcon } from "lucide-react";
+import { Textarea } from "./ui/textarea";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+
+export function UploadSection() {
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    description: "",
+  });
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setSelectedFiles(Array.from(e.target.files));
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Thank you, ${formData.name}. We've received your request and will contact you at ${formData.email} within 24 hours.`);
+    setFormData({ name: "", email: "", description: "" });
+    setSelectedFiles([]);
+  };
+
+  return (
+    <section id="upload" className="py-32 px-6 bg-white">
+      <div className="container mx-auto max-w-5xl">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6">
+            Begin
+          </p>
+          <h2 className="mb-8">Start Your<br />Transformation</h2>
+          <div className="w-16 h-px bg-accent mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Share your jewelry's story with us. Upload images and describe your vision. We'll respond with thoughtful design proposals within 24 hours.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="bg-secondary/20 p-10 md:p-16 space-y-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-3">
+              <Label htmlFor="name">Your Name</Label>
+              <Input
+                id="name"
+                type="text"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+                placeholder="Name"
+                className="bg-white border-border/50 focus:border-accent transition-colors"
+              />
+            </div>
+            <div className="space-y-3">
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+                placeholder="your.email@example.com"
+                className="bg-white border-border/50 focus:border-accent transition-colors"
+              />
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <Label htmlFor="description">Your Vision</Label>
+            <Textarea
+              id="description"
+              value={formData.description}
+              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              required
+              placeholder="Describe your piece and what you envision. For example: 'My grandmother's gold ring no longer fits. I'd love to transform it into a delicate pendant necklace that I can wear close to my heart.'"
+              rows={6}
+              className="bg-white border-border/50 focus:border-accent transition-colors resize-none"
+            />
+          </div>
+
+          <div className="space-y-3">
+            <Label htmlFor="photos">Jewelry Images</Label>
+            <div>
+              <label
+                htmlFor="photos"
+                className="flex flex-col items-center justify-center w-full h-56 border border-dashed border-border/50 cursor-pointer hover:border-accent transition-colors bg-white group"
+              >
+                <div className="flex flex-col items-center justify-center py-8 px-4">
+                  {selectedFiles.length > 0 ? (
+                    <>
+                      <ImageIcon className="w-10 h-10 mb-4 text-accent" />
+                      <p className="mb-2 text-foreground tracking-wide">
+                        {selectedFiles.length} file{selectedFiles.length > 1 ? "s" : ""} selected
+                      </p>
+                      <p className="text-sm text-muted-foreground text-center">
+                        {selectedFiles.map((f) => f.name).join(", ")}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <Upload className="w-10 h-10 mb-4 text-muted-foreground group-hover:text-accent transition-colors" />
+                      <p className="mb-2 text-muted-foreground tracking-wide">
+                        Upload your jewelry images
+                      </p>
+                      <p className="text-sm text-muted-foreground/60">PNG, JPG up to 10MB</p>
+                    </>
+                  )}
+                </div>
+                <input
+                  id="photos"
+                  type="file"
+                  className="hidden"
+                  multiple
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  required
+                />
+              </label>
+            </div>
+          </div>
+
+          <div className="pt-4">
+            <button
+              type="submit"
+              className="w-full py-5 bg-foreground text-background hover:bg-accent hover:text-white transition-all duration-300"
+            >
+              <span className="text-sm tracking-[0.15em] uppercase">Submit Request</span>
+            </button>
+            <p className="mt-6 text-center text-sm text-muted-foreground tracking-wide">
+              We review every submission personally and respond within 24 hours
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
+}
