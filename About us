@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Rejewlr</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Rejewlr</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="design.html">Design Your Piece</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Our Story</h2>
+    <p>Rejewlr helps women transform their old or unused jewellery into pieces full of emotion and modern style. We combine sustainability, craftsmanship, and personal connection to make every design meaningful.</p>
+</div>
+
+<footer>
+    <p>&copy; 2025 Rejewlr. Sustainable & Personal Jewellery Redesign.</p>
+</footer>
+</body>
+</html>
